@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://www.imdpune.gov.in/images/imd_logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMD Pune - QCAM</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      var message="Right Click Disabled ???"; 
+      function clickIE(){if (document.all){alert(message);return false;}}
+      function clickNS(e){
+      if(document.layers||(document.getElementById&&!document.all)){
+      if(e.which==2||e.which==3){alert(message);return false;	}}}
+      if (document.layers){document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+      else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+      document.oncontextmenu=new Function("return false")
+      </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

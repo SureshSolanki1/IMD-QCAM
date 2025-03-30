@@ -1,0 +1,128 @@
+/* Full-page background */
+.login-container {
+  background: linear-gradient(to bottom, #1666f0, #65a9f1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Login Box Styling */
+.login-box {
+  justify-content: flex-start; /* Ensures content starts from top */
+  background: linear-gradient(to bottom, #70a0f1, #b4d1f0);
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1; /* Ensures content appears above watermark */
+}
+
+/* Watermark inside Login Box */
+.login-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* Adjust size */
+  height: 200px;
+  background: url("/IMD.png") no-repeat center center;
+  background-size: contain;
+  opacity: 0.6; /* Watermark effect */
+  z-index: 0;
+}
+
+/* Ensuring form elements are above the watermark */
+form {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading styles */
+.login-title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #070808;
+  margin-top: 0px; /* Removes gap */
+  padding-top: 0px; /* Ensures no extra space */
+  position: relative;
+  z-index: 1;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #0a0a0a;
+  margin-top: 0px; /* Removes gap */
+  margin-bottom: 10px; /* Slightly adjusts spacing before form */
+  position: relative;
+  z-index: 1;
+}
+/* Input fields */
+label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+input {
+  opacity: 0.5;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #0f0f0f;
+  border-radius: 5px;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Button styles */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+/* Login Button */
+.login-btn {
+  background-color: #012970;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background-color: #d9534f;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
