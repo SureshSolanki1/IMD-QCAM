@@ -5,6 +5,7 @@ import "../styles/Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -33,7 +34,6 @@ const Login = () => {
     }
   };
 
-  // Reset input fields when cancel is clicked
   const handleCancel = () => {
     setEmail("");
     setPassword("");
@@ -44,7 +44,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <h1 className="login-title">IMD-QCAM</h1>
-        <h3 className="login-subtitle">Login</h3>
+        <h3 className="login-title">Login</h3>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
           <label>Email</label>
@@ -57,13 +57,15 @@ const Login = () => {
           />
 
           <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
           <div className="button-group">
             <button type="submit" className="login-btn">Login</button>
@@ -76,4 +78,3 @@ const Login = () => {
 };
 
 export default Login;
-

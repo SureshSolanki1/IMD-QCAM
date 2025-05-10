@@ -40,8 +40,11 @@ const Footer = () => {
               </a>
             </li>
           </ul>
+          </div>
         </div>
-      </div>
+        <div className="footer-bottom">
+          <p>© Copyright <a href="https://moes.gov.in/">Ministry of Earth Sciences, </a>New Delhi, India | <a href="disclaimer.html" target="_blank">Disclaimer</a> <u>Designed, Developed and maintained by IT Cell, O/o Climate Research &amp; Services, Pune</u></p>
+        </div>
     </footer>
   );
 };

@@ -6,14 +6,13 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
 }
 
 .header {
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #046ba7;
-  color: white;
+  font-family: "Segoe UI", sans-serif;
+  background-color:rgb(127, 185, 233);
+  color: rgb(37, 35, 35);
   display: flex;
   flex-direction: column;
   align-items: center; /* Center aligns the content */
@@ -31,7 +30,7 @@ body {
 
 /* Navigation Menu */
 .nav-menu {
-  background-color: #046ba7;
+  background-color: rgb(127, 185, 233);
   padding: 10px 0;
 }
 
@@ -66,8 +65,8 @@ body {
 /* Hover Effect: Slight Color Change */
 .nav-list a:hover {
   background: #0571d3; /* Slightly darker blue */
-  color: white; /* White text on hover */
-  border-color: #034b91; /* Darker border */
+  color: rgb(20, 20, 20); /* White text on hover */
+  border-color: #050505; /* Darker border */
 }
 
 /* Hover Effect: Transparent Box */
@@ -109,28 +108,46 @@ li{
 }
 
 .content-section {
+  font-family: "Segoe UI", sans-serif;
   display: flex;
   flex-direction: column; /* Stack elements vertically */
   align-items: center; /* Center content horizontally */
   justify-content: center; /* Align vertically if needed */
   text-align: center; /* Center text */
-  width: 135%; /* Adjust width */
+  width: 134%; /* Adjust width */
   margin: 0 auto; /* Center section in the page */
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 10px;  
+}
+.content-section h2{
+  text-align: center;
+  color: #e72a24;
+  margin-bottom: 1.5rem;
+}
+.content-section p{
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.content-section ul{
+  text-align: left;
+  font-weight: bold;
+}
+.content-section li{
+  text-align: left;
 }
 
 /* Footer */
 .footer {
-  background-color: #046ba7;
+  background-color: rgb(127, 185, 233);
   color: black;
   padding: 20px 0;
   margin-top: 40px;
 }
 
 .footer-section {
-  color : white;
+  color : rgb(24, 23, 23);
 }
 
 .footer-content {
@@ -155,7 +172,7 @@ li{
 }
 
 .footer-section a {
-  color: white;
+  color: rgb(26, 24, 24);
   text-decoration: none;
 }
 
@@ -188,6 +205,158 @@ li{
   background-color: #fff;
   margin: 0 auto;         /* Ensure the map itself is centered inside its container */
 }
+
+.image-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align image and caption to the right */
+  padding: 20px;
+}
+
+.image-content img {
+  height: 500px;
+  width: 900px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 2px solid #080808; /* Nice border color */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+  border-width: 100%;
+}
+.image-content2 img{
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  height: 500px;
+  width: 900px;
+}
+
+.left-align {
+  align-self: flex-start; /* Aligns this element to the left inside the flex container */
+  text-align: left;
+  font-size: medium;
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center everything horizontally */
+  width: 100%;
+  gap: 10px; /* Small optional space between items (you can set to 0) */
+}
+
+.logo-image {
+  width: 230px;
+  height: 120px;
+  margin-left: -60px; /* No space around logos */
+}
+.logo-img{
+  width: 150px;
+  height: 120px;
+  margin: 0;
+}
+
+.logo-text {
+  text-align: center;
+}
+/* Info cards section */
+.info-cards {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  background: rgb(135, 202, 228);
+  border-radius: 20%;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+  border-top: 3px solid var(--primary-color);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  color: var(--primary-dark);
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.info-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .info-card {
+    padding: 1.2rem;
+  }
+}
+.footer-bottom {
+  width: 100%; /* Ensure it's full-width */
+  text-align: center; /* Center the text */
+  font-size: 13px; /* Set small font size */
+  color: #333;
+  margin-top: 20px;
+  padding-top: 10px; /* Optional for spacing above */
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
 
 
 

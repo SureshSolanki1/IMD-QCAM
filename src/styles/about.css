@@ -1,0 +1,65 @@
+.history-page {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+.imd-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+/* Content */
+.history-content {
+  background-color: white;
+  padding: 2rem 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.history-content h2 {
+  text-align: center;
+  color: #e72a24;
+  margin-bottom: 1.5rem;
+}
+
+.history-content p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.history-content ul{
+  text-align: justify;
+}
+
+/* Gallery */
+.history-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.history-gallery img {
+  width: calc(30% - 1rem);
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .imd-logo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .history-gallery img {
+    width: 100%;
+  }
+
+  .imd-search form {
+    flex-direction: column;
+  }
+}

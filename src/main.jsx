@@ -8,8 +8,9 @@ import AWS_Network from "./components/AWS_Network";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./styles/global.css";
+import RealTimeData from "./components/RealTimeData";
 
-/* Function to check if user is authenticated
+/*Function to check if user is authenticated
 const isAuthenticated = () => {
   return localStorage.getItem("token"); // Check if token exists
 };
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/AWS_Network",
     element: <ProtectedRoute><AWS_Network /></ProtectedRoute>,
+  },
+  {
+    path: "/realtimedata",
+    element: <ProtectedRoute><RealTimeData /></ProtectedRoute>,
   },
   {
     path: "*",

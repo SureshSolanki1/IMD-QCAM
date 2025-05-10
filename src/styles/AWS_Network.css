@@ -4,6 +4,7 @@
 }
 
 .search-section {
+  color: black;
   padding: 2rem;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -22,6 +23,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  color: black; /* Ensures text in the input is black */
 }
 
 .search-button {

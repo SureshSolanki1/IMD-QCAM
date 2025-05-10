@@ -12,11 +12,10 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log("MongoDB connected"))
-  .catch(err => console.error(err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
+
 
 // User Schema
 const UserSchema = new mongoose.Schema({
@@ -79,13 +78,78 @@ const stationSchema = new mongoose.Schema({
 
 const Station = mongoose.model("Station", stationSchema);
 
-// API: Get all AWS Stations
-app.get("/api/stations", async (req, res) => {
+// Correct Schema Mapping for AWS Data Collection
+const AWSDataSchema = new mongoose.Schema({
+  serial_no: Number,
+  district: String,
+  station: String,
+  date: String,
+  time: String,
+  rainfall: String,
+  temp: String,
+  temp_min: String,
+  temp_max: String,
+  rh: String,
+  rh_min_max: String,
+  wind_dir: String,
+  wind_speed: String,
+  wind_speed_max_gust: String,
+  slp: String,
+  mslp: String,
+  sunshine: String,
+  battery: String,
+  gps: String,
+  timestamp: Date
+});
+
+const AWSData = mongoose.model("AWSData", AWSDataSchema, "aws_data"); // Ensure correct collection name
+
+// ✅ Updated API to Fetch AWS Data and Map Fields
+app.get("/api/aws_station_data", async (req, res) => {
   try {
-    const stations = await Station.find();
-    res.json(stations);
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Fetch today's records, sorted by serial number
+    const data = await AWSData.find({ date: today })
+      .sort({ serial_no: 1 }) // 1 for ascending order by serial number
+      .lean()
+      .exec();
+    
+    console.log("📌 MongoDB Data Count:", data.length);
+    
+    if (data.length === 0) {
+      return res.status(404).json({ message: "No data found for today" });
+    }
+
+    // Map the data to match frontend expectations
+    const mappedData = data.map(item => ({
+      S_NO: item.serial_no,
+      DISTRICT: item.district,
+      STATION: item.station,
+      DATE: item.date,
+      TIME_IST: item.time,
+      RAIN_FALL: item.rainfall,
+      TEMP_C: item.temp,
+      TEMP_MIN_C: item.temp_min,
+      TEMP_MAX_C: item.temp_max,
+      RH_PERCENT: item.rh,
+      RH_MIN_MAX_PERCENT: item.rh_min_max,
+      WIND_DIR_DEG: item.wind_dir,
+      WIND_SPEED_KT: item.wind_speed,
+      WIND_GUST_KT: item.wind_speed_max_gust,
+      SLP_HPA: item.slp,
+      MSLP_HPA: item.mslp,
+      SUN_SHINE: item.sunshine,
+      BATTERY_VOLTS: item.battery,
+      GPS: item.gps
+    }));
+
+    console.log("📌 Sending total records:", mappedData.length);
+    res.json(mappedData);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching stations", error });
+    console.error("❌ Error fetching AWS data:", error);
+    res.status(500).json({ message: "Error fetching AWS data", error });
   }
 });
 

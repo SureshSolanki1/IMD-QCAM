@@ -8,15 +8,14 @@
   
   /* Table Styling */
   table {
-    width: 80%;
+    width: 88%;
     border-collapse: collapse;
     border: 2px solid #444;
   }
   
   /* Header Styling */
   th {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #14c404;
+    background-color: #046ba7;
     color: rgb(7, 7, 7);
     padding: 8px;
     text-align: center;
@@ -39,4 +38,414 @@
   tbody tr:hover {
     background-color: #ddd;
   }
-  
+.aws-data-container h2{
+  text-align: center;
+  font-weight: lighter;
+  font-size: medium;
+}
+/* Center the table properly */
+.aws-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Make the table fit the window */
+.aws-data-container table {
+  width: 100%; /* Full width */
+  max-width: 95vw; /* Prevents stretching beyond viewport */
+  table-layout: fixed; /* Ensure equal column width */
+  border-collapse: collapse;
+  border: 2px solid #c7c3c3;
+  text-align: center;
+}
+
+/* Header Styling */
+.aws-data-container th {
+  background-color: rgb(65, 179, 224);
+  font-size: small; /* Ensures readability */
+  font-weight: bold;
+  padding: 6px 8px; /* Balanced padding */
+  min-width: 50px; /* Allow enough space for text */
+  height: 20px; /* Slightly taller for better readability */
+  border: 1px solid #444;
+  white-space: normal; /* Allow wrapping for long text */
+  word-wrap: break-word; /* Ensures text doesn't overflow */
+  text-align: center; /* Center aligns text */
+}
+
+/* Table adjustments */
+.aws-data-container table {
+  width: 100%; /* Full width */
+  table-layout: auto; /* Adjusts column width dynamically */
+  border-collapse: collapse;
+  border: 2px solid #444;
+  text-align: center;
+}
+
+/* Row Styling */
+.aws-data-container td {
+  font-size: small; /* Keeps text visible */
+  padding: 2px;
+  height: 5px;
+  border: 1px solid #444;
+  text-align: center;
+  white-space: normal; /* Allow text to wrap */
+  word-wrap: break-word;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: rgb(149, 173, 182);
+}
+
+/* Title Styling */
+.aws-data-container h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+/* Controls Container */
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+/* Search Container */
+.search-container {
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.2);
+}
+
+/* Page Size Container */
+.page-size-container {
+  margin-left: 20px;
+}
+
+.page-size-select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.pagination-button:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  margin: 0 15px;
+  color: #666;
+}
+
+/* Table Header Sorting */
+th[style*="cursor: pointer"]:hover {
+  background-color: #e6f3ff;
+}
+
+th[style*="cursor: pointer"] {
+  position: relative;
+  padding-right: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .controls-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .page-size-container {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .pagination-container {
+    flex-wrap: wrap;
+  }
+
+  .pagination-button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Table overflow handling */
+.aws-data-container {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Loading and Error States */
+.loading-indicator {
+  color: #0066cc;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff3f3;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* Temperature Legend */
+.temperature-legend {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.temperature-legend h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.color-box.cold {
+  background-color: #e3f2fd;
+}
+
+.color-box.cool {
+  background-color: #f1f8e9;
+}
+
+.color-box.warm {
+  background-color: #fff3e0;
+}
+
+.color-box.hot {
+  background-color: #ffebee;
+}
+
+.color-box.very-hot {
+  background-color: #b71c1c;
+}
+
+/* Table wrapper for better scrolling */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Improve table cell padding for temperature cells */
+td[style*="background-color"] {
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+td[style*="background-color"]:hover {
+  transform: scale(1.05);
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Data Summary */
+.data-summary {
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.data-summary p {
+  margin: 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.data-summary b {
+  color: #0066cc;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #fff3f3;
+  color: #dc3545;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ffcdd2;
+  text-align: center;
+}
+
+.error-message p {
+  margin: 5px 0;
+}
+
+/* No Data Message */
+.no-data-message {
+  background-color: #f8f9fa;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  color: #6c757d;
+}
+
+.no-data-message p {
+  margin: 10px 0;
+}
+
+.no-data-message ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.no-data-message li {
+  margin: 8px 0;
+  color: #495057;
+}
+
+/* Recent Data Highlight */
+.recent-data {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: #e3f2fd;
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+/* Improve table wrapper */
+.table-wrapper {
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: auto;
+  max-height: 70vh;
+}
+
+/* Sticky header */
+.table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  background-color: #046ba7;
+  z-index: 1;
+}
+
+/* Improve cell padding and alignment */
+.table-wrapper td {
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+/* Hover effect for rows */
+.table-wrapper tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+/* Temperature cell improvements */
+td[style*="background-color"] {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.temperature-legend .legend-item {
+  cursor: pointer; /* 👈 this shows the hand cursor on hover */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.temperature-legend .legend-item:hover {
+  background-color: #f0f0f0;
+}
+

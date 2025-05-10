@@ -8,7 +8,7 @@ import '../styles/AWS_Network.css';
 const AWS_Network = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]); // Store multiple results
-
+  
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) {
@@ -53,43 +53,46 @@ const AWS_Network = () => {
       </div>
 
       {searchResults.length > 0 && (
-        <div className="station-details">
-          <h2>Station Details</h2>
-          <table className="station-table">
-            <thead>
-              <tr>
-                <th>Sr. No</th>
-                <th>Station Name</th>
-                <th>Sensor ID</th>
-                <th>Sensor Name</th>
-                <th>Installation Date</th>
-                <th>Last Maintenance</th>
-                <th>Next Maintenance</th>
-                <th>Status</th>
-                <th>Outlier Fetched</th>
-              </tr>
-            </thead>
-            <tbody>
-              {searchResults.map((station, index) => (
-                <tr key={station._id}>
-                  <td>{index + 1}</td>
-                  <td>{station.name}</td>
-                  <td>{station.sensorID}</td>
-                  <td>{station.sensorName}</td>
-                  <td>{new Date(station.installationDate).toLocaleDateString()}</td>
-                  <td>{new Date(station.lastMaintenance).toLocaleDateString()}</td>
-                  <td>{new Date(station.nextMaintenance).toLocaleDateString()}</td>
-                  <td className={station.needsMaintenance ? 'status-offline' : 'status-online'}>
-                    {station.needsMaintenance ? 'Offline' : 'Online'}
-                  </td>
-                  <td>{station.outlierFetched ? "Yes" : "No"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
+  <div className="station-details">
+    <h2>
+    {searchResults[0].name} - STATION DETAILS
+    </h2>
+    <table className="station-table">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Station ID</th>
+          <th>Station Name</th>
+          <th>Sensor ID</th>
+          <th>Sensor Name</th>
+          <th>Installation Date</th>
+          <th>Last Maintenance</th>
+          <th>Next Maintenance</th>
+          <th>Status</th>
+          <th>Outlier Fetched</th>
+        </tr>
+      </thead>
+      <tbody>
+        {searchResults.map((station, index) => (
+          <tr key={station._id}>
+            <td>{index + 1}</td>
+            <td>{station.stationId}</td>
+            <td>{station.name}</td>
+            <td>{station.sensorID}</td>
+            <td>{station.sensorName}</td>
+            <td>{new Date(station.installationDate).toLocaleDateString()}</td>
+            <td>{new Date(station.lastMaintenance).toLocaleDateString()}</td>
+            <td>{new Date(station.nextMaintenance).toLocaleDateString()}</td>
+            <td className={station.needsMaintenance ? 'status-offline' : 'status-online'}>
+              {station.needsMaintenance ? 'Offline' : 'Online'}
+            </td>
+            <td>{station.outlierFetched ? "Yes" : "No"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
       <AWSList />
       <Custom_Map />
       <Footer />
